@@ -58,6 +58,14 @@ router.post("/register", async (req, res) => {
         });
     } catch (error) {
         console.error("Register error:", error);
+
+        // Handle duplicate key error from old indexes
+        if (error.code === 11000) {
+            return res.status(400).json({
+                message: "This face is already registered or database has conflicting data. Please try again or contact support."
+            });
+        }
+
         res.status(500).json({
             message: "Server error",
             error: error.message
