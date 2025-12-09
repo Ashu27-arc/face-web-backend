@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/faceAuth")
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://ashutoshrathore656_db_user:S8O4Aei70E2NbGB4@face12.ofvdxay.mongodb.net/faceAuth")
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.error("MongoDB connection error:", err));
 
